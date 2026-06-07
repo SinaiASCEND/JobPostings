@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="image-slot.js"></script>
 <script src="jobs-data.js"></script>
 <style>
   :root{
@@ -187,10 +188,152 @@
   footer .fmeta{font-size:12.5px;color:var(--grey);line-height:1.5;text-align:right}
   footer .fmeta b{color:var(--navy)}
 
+  /* ---------- tagline (top of sticky filter) ---------- */
+  .sidetag{display:flex;flex-direction:column;gap:9px;padding-bottom:2px}
+  .sidetag .tmark{width:30px;flex:0 0 auto}
+  .sidetag .tmark .amk-l{fill:var(--cyan-dk);opacity:1}
+  .sidetag .tmark .amk-p{fill:var(--magenta);opacity:1}
+  .sidetag .phrases{display:flex;flex-direction:column;gap:1px}
+  .sidetag .ph{font-size:17px;font-weight:800;letter-spacing:-.012em;line-height:1.14;white-space:nowrap}
+  .sidetag .ph.a{color:var(--cyan-dk)} .sidetag .ph.b{color:var(--navy)} .sidetag .ph.c{color:var(--magenta)}
+
+  /* CA Leadership link in the filter list */
+  .catlink{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:10px;
+    font-size:14px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--navy);
+    width:100%;margin-top:5px;font-family:inherit;cursor:pointer}
+  .catlink:hover{background:var(--navy);color:#fff}
+  .catlink svg{width:16px;height:16px;flex:0 0 auto}
+  .catlink .cl-nm{white-space:nowrap}
+  .catlink .cl-arrow{margin-left:auto}
+
+  /* ---------- senior leadership ---------- */
+  .leadership{background:var(--warm);border-top:1px solid var(--grey-lt)}
+  .lead-inner{max-width:1200px;margin:0 auto;padding:60px 40px 68px}
+  .lead-head{margin-bottom:28px;max-width:64ch}
+  .lead-head .kicker{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:800;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-dk);margin-bottom:10px}
+  .lead-head .kicker::before{content:"";width:22px;height:2px;background:var(--cyan);border-radius:2px}
+  .lead-head h2{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.015em}
+  .lead-head p{font-size:15px;line-height:1.5;color:var(--grey);margin-top:9px}
+  .lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .leader{display:flex;gap:16px;align-items:center;background:#fff;
+    border:1px solid var(--grey-lt);border-radius:14px;padding:18px 19px;
+    box-shadow:0 1px 0 rgba(31,78,121,.04);transition:box-shadow .18s,border-color .18s}
+  .leader:hover{box-shadow:0 14px 30px rgba(31,78,121,.10);border-color:#cfe6f5}
+  .leader-photo{width:76px;height:76px;flex:0 0 auto;color:var(--cyan-dk);font-size:10.5px}
+  .leader-photo::part(frame){background:var(--ice)}
+  .leader-photo::part(ring){border-color:#bcdcef}
+  .leader-info{min-width:0}
+  .leader-info h3{font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-.01em;line-height:1.2}
+  .leader-info .role{font-size:13px;font-weight:700;color:var(--cyan-dk);margin-top:4px;line-height:1.3}
+  .leader-info .dept{font-size:12.5px;font-weight:500;color:var(--grey);margin-top:5px;line-height:1.35}
+
   @media(max-width:900px){
-    .layout{grid-template-columns:1fr}
-    .side{position:static}
+    .layout{grid-template-columns:1fr;gap:24px;padding:26px 24px 56px}
+    .layout > *{min-width:0}
+    .side{position:static;min-width:0}
     .hero h1{font-size:40px}
+    .applyband .shell{flex-direction:column;align-items:flex-start;gap:24px;padding:40px 28px}
+    .applyband .applyactions{align-self:stretch}
+    footer .shell{padding:26px 24px}
+    .lead-grid{grid-template-columns:1fr 1fr}
+    .lead-inner{padding:48px 24px 56px}
+  }
+
+  /* ---------- iPhone / phone layout ---------- */
+  @media(max-width:600px){
+    /* top bar — logo + Contact only */
+    .topbar{padding:12px 16px;gap:12px}
+    .topbar .brand img.ms{height:29px}
+    .topbar .brand .divider,.topbar .brand .office{display:none}
+    .topnav{gap:4px}
+    .topnav a:not(.cta){display:none}
+    .topnav a.cta{padding:9px 16px}
+
+    /* hero (compact) */
+    .hero{min-height:0}
+    .hero-inner{padding:18px 20px 18px}
+    .eyebrow{font-size:10.5px;letter-spacing:.14em}
+    .hero h1{font-size:25px;max-width:none;line-height:1.06;margin:12px 0 0}
+    .hero .herosub{font-size:15px;max-width:34ch;margin-top:7px;line-height:1.25}
+    .hero p.lede{font-size:13.5px;margin-top:8px;max-width:none}
+    .hero .stats{gap:9px 22px;margin-top:15px;flex-wrap:wrap;position:relative}
+    .hero .stat .n{font-size:20px}
+    .hero .stat .l{font-size:10.5px;margin-top:4px}
+    .hero .heromark{width:144px;right:-12px;bottom:6px}
+    .hero .heromark .amk-l{opacity:.4}
+
+    /* filters — STICKY search + horizontal chip rail */
+    .layout{padding:0 16px 44px;gap:0}
+    .layout main{padding-top:16px}
+    .side{gap:10px;min-width:0;position:sticky;top:62px;z-index:30;
+      margin:0 -16px;padding:13px 16px 11px;background:var(--warm);
+      box-shadow:0 12px 16px -13px rgba(15,30,50,.34)}
+    .side > div{min-width:0}
+    .searchbox{height:44px}
+    .searchbox input{font-size:16px}
+    .side h4,.helpcard{display:none}
+    .cats{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:8px;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch;
+      margin:0 -16px;padding:2px 16px 2px}
+    .cats::-webkit-scrollbar{display:none}
+    .cat{width:auto;flex:0 0 auto;height:38px;gap:9px;padding:0 14px;border:1.5px solid var(--grey-lt);background:#fff}
+
+    /* list */
+    .listhead{margin-bottom:14px}
+    .listhead h2{font-size:19px}
+    .list{gap:12px}
+
+    /* cards (compact) */
+    .job-band{padding:14px 15px 13px}
+    .band-inner{gap:10px}
+    .band-cat{font-size:10px}
+    .job-band h3{font-size:17.5px;max-width:none}
+    .job-band .ghostmark{width:178px;right:-32px}
+    .fte{font-size:11.5px;padding:5px 10px}
+    .job-main{padding:13px 15px 14px}
+    .prog-line{font-size:10px}
+    .summary{font-size:13.5px;margin-top:7px;line-height:1.45;
+      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .job-meta{gap:6px 14px;margin-top:10px}
+    .mi{font-size:12.5px}
+    .details-btn,.apply-btn{height:40px;font-size:13.5px;white-space:nowrap}
+    .job-actions{flex-wrap:nowrap;gap:8px;margin-top:12px}
+    .job-actions .details-btn{flex:0 0 auto;padding:0 13px}
+    .job-actions .apply-btn{flex:1 1 auto;justify-content:center;min-width:0;white-space:nowrap}
+
+    /* detail */
+    .detail-pad{margin:4px 17px 0;padding:18px 0 20px}
+    .detail-grid{grid-template-columns:1fr;gap:20px}
+    .detail-foot{flex-direction:column;align-items:stretch;gap:14px;padding:16px}
+    .detail-foot .applywrap{align-items:stretch}
+    .detail-foot .applywrap .apply-btn{justify-content:center}
+    .detail-foot .applywrap .note{text-align:center}
+
+    /* apply band */
+    .applyband .shell{padding:32px 20px;gap:20px}
+    .applyband h3{font-size:22px}
+    .applyband p{font-size:14.5px}
+    .applyband .ghosttext{font-size:120px;top:-12px}
+
+    /* tagline (sticky header) + leadership */
+    .sidetag{flex-direction:row;align-items:center;gap:8px}
+    .sidetag .tmark{width:20px}
+    .sidetag .phrases{flex-direction:row;flex-wrap:wrap;gap:4px 7px}
+    .sidetag .ph{font-size:12.5px}
+    .catlink{width:auto;flex:0 0 auto;height:38px;margin-top:0;border-radius:10px;font-size:13px}
+    .catlink .cl-arrow{display:none}
+    .lead-inner{padding:34px 16px 42px}
+    .lead-head{margin-bottom:20px}
+    .lead-head h2{font-size:23px}
+    .lead-grid{grid-template-columns:1fr;gap:12px}
+    .leader{padding:15px 16px;gap:14px}
+    .leader-photo{width:64px;height:64px}
+    .leader-info h3{font-size:15.5px}
+
+    /* footer */
+    footer .shell{flex-direction:column;align-items:flex-start;gap:18px}
+    footer .fmeta{text-align:left}
   }
 </style>
 </head>
@@ -206,6 +349,7 @@
     <nav class="topnav">
       <a href="#roles">Open Roles</a>
       <a href="#apply">How to Apply</a>
+      <a href="#leadership">Leadership</a>
       <a class="cta" href="mailto:curricular.affairs@mssm.edu">Contact</a>
     </nav>
   </header>
@@ -239,9 +383,18 @@
     </svg>
   </section>
 
+
   <!-- LAYOUT -->
   <div class="layout" id="roles">
     <aside class="side">
+      <div class="sidetag">
+        <svg class="tmark" viewBox="0 0 2149.48 711.8" fill="none" aria-hidden="true"><g class="amk-l"><polygon points="98.44 711.8 780.24 192.2 701.99 112.2"/><polygon points="352.93 711.8 907.91 322.73 827.42 240.41"/><polygon points="612.48 711.8 1408.32 78.9 1328.93 0"/><polygon points="862.16 711.8 1534.77 204.49 1453.79 124.04"/><polygon points="1121.1 711.8 1661.95 330.86 1583.26 252.65"/><polygon points="1372.32 711.8 1791.42 459.51 1708.85 377.47"/><polygon points="1629.71 711.8 1918.65 585.84 1837.54 505.31"/></g><polygon class="amk-p" points="1967.05 633.96 1888.65 711.8 2045.42 711.8"/></svg>
+        <div class="phrases">
+          <span class="ph a">Climb higher.</span>
+          <span class="ph b">Reach further.</span>
+          <span class="ph c">Care deeper.</span>
+        </div>
+      </div>
       <div class="searchbox">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         <input id="search" type="text" placeholder="Search roles…" autocomplete="off" />
@@ -272,6 +425,55 @@
       </div>
     </main>
   </div>
+
+  <!-- SENIOR LEADERSHIP -->
+  <section class="leadership" id="leadership">
+    <div class="lead-inner">
+      <div class="lead-head">
+        <span class="kicker">Office of Curricular Affairs</span>
+        <h2>Senior Leadership</h2>
+        <p>The faculty leaders guiding curriculum, assessment, and the student experience across the ASCEND curriculum.</p>
+      </div>
+      <div class="lead-grid">
+        <article class="leader">
+          <image-slot id="leader-soriano" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Rainier P. Soriano, MD</h3><div class="role">Senior Associate Dean for Curricular Affairs</div><div class="dept">Professor, Department of Geriatrics &amp; Palliative Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-anand" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Shashi Anand, MEd</h3><div class="role">Associate Dean, Undergraduate Medical Education</div><div class="dept">Medical Education</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-leisman" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Staci Leisman, MD</h3><div class="role">Director of Pre-Clerkship Curriculum (Phase 1)</div><div class="dept">Professor, Division of Nephrology, Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-holzer" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Horatio (Teddy) Holzer, MD</h3><div class="role">Director of Clinical Curriculum (Phase 2/3)</div><div class="dept">Associate Professor, Division of Hospital Medicine, Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-ramaswamy" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Ravishankar Ramaswamy, MD MHPE</h3><div class="role">Director of Integration and Transitions Phase</div><div class="dept">Professor, Department of Geriatrics &amp; Palliative Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-strother" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Christopher Strother, MD</h3><div class="role">Director of Clinical Competency</div><div class="dept">Professor, Department of Emergency Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-singh" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Vasundhara Singh, MD</h3><div class="role">Director of Medical Student Electives</div><div class="dept">Associate Professor, Division of Hospital Medicine, Medicine</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-chadha" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Nisha Chadha, MD</h3><div class="role">Director, Clinical Apprenticeship Experience (APEX)</div><div class="dept">Associate Professor, Department of Ophthalmology</div></div>
+        </article>
+        <article class="leader">
+          <image-slot id="leader-fernandez" class="leader-photo" shape="rounded" radius="16" placeholder="Photo"></image-slot>
+          <div class="leader-info"><h3>Helen Fernandez, MD MPH</h3><div class="role">Director, Strategic Planning and Faculty Development</div><div class="dept">Professor, Department of Geriatrics &amp; Palliative Medicine</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- APPLY BAND -->
   <section class="applyband" id="apply">
@@ -411,6 +613,12 @@
     return '<button class="cat" role="tab" data-cat="'+o[0]+'" aria-selected="'+(i===0?'true':'false')+'">'+
       '<span class="nm">'+dot+esc(o[1])+'</span><span class="c">'+(counts[o[0]]||0)+'</span></button>';
   }).join('');
+  cats.insertAdjacentHTML('beforeend',
+    '<a class="catlink" href="#leadership">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.1"/><path d="M3.6 19a5.4 5.4 0 0 1 10.8 0"/><path d="M16.2 5.3a3 3 0 0 1 0 5.4"/><path d="M18.4 19a5.4 5.4 0 0 0-3-4.8"/></svg>'+
+      '<span class="cl-nm">CA Leadership</span>'+
+      '<svg class="cl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'+
+    '</a>');
 
   var state = { cat:'all', q:'' };
   function apply(){
