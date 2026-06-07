@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Faculty Opportunities — Office of Curricular Affairs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="jobs-data.js"></script>
+<style>
+  :root{
+    --cyan:#00AEEF; --cyan-dk:#007DB0; --magenta:#D80B8C; --magenta-dk:#A80A6E;
+    --grey:#58595B; --grey-lt:#E4E4E5; --navy:#1F4E79; --navy-dk:#143655;
+    --ice:#DEEBF7; --warm:#FBFAF8; --ink:#28323F; --paper:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--warm);color:var(--grey);
+    font-family:"Barlow",Calibri,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{text-decoration:none;color:inherit}
+  .shell{max-width:1200px;margin:0 auto}
+  img{display:block}
+
+  /* ---------- top bar ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:18px 40px;background:#fff;border-bottom:1px solid var(--grey-lt);position:sticky;top:0;z-index:50}
+  .topbar .brand{display:flex;align-items:center;gap:18px}
+  .topbar .brand img.ms{height:38px}
+  .topbar .brand .divider{width:1px;height:30px;background:var(--grey-lt)}
+  .topbar .brand .office{font-size:13px;font-weight:700;color:var(--navy);line-height:1.25}
+  .topbar .brand .office span{display:block;font-weight:500;color:var(--grey);font-size:12px}
+  .topnav{display:flex;align-items:center;gap:8px}
+  .topnav a{font-size:14px;font-weight:600;color:var(--grey);padding:8px 14px;border-radius:7px}
+  .topnav a:hover{color:var(--navy);background:var(--ice)}
+  .topnav a.cta{background:var(--cyan);color:#fff}
+  .topnav a.cta:hover{background:var(--cyan-dk)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;min-height:380px;display:flex;align-items:center}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(118deg,#16344E 0%,#0E5E86 46%,#00AEEF 100%);z-index:0}
+  .scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(96deg,rgba(8,28,46,.82) 0%,rgba(8,28,46,.45) 52%,rgba(8,28,46,.05) 82%)}
+  .hero-inner{position:relative;z-index:3;pointer-events:none;
+    width:100%;max-width:1200px;margin:0 auto;padding:58px 40px;color:#fff}
+  .hero-inner .pointer-on{pointer-events:auto}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;color:#fff}
+  .eyebrow .pin{width:9px;height:9px;border-radius:50%;background:var(--magenta);box-shadow:0 0 0 4px rgba(216,11,140,.25)}
+  .hero h1{font-size:52px;line-height:1.04;font-weight:800;letter-spacing:-.022em;
+    margin:16px 0 0;max-width:18ch;text-wrap:balance}
+  .hero .herosub{font-size:30px;font-weight:600;color:#CFEAF7;letter-spacing:-.012em;
+    line-height:1.2;max-width:26ch;margin-top:13px;text-wrap:balance}
+  .hero p.lede{font-size:18.5px;line-height:1.5;max-width:44ch;color:#EAF6FC;font-weight:400;margin-top:16px}
+  .hero .stats{display:flex;gap:38px;margin-top:30px}
+  .hero .stat .n{font-size:32px;font-weight:800;line-height:1;color:#fff;white-space:nowrap}
+  .hero .stat .l{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+    color:#CFEAF7;margin-top:7px}
+  .hero .heromark{position:absolute;right:30px;bottom:42px;width:430px;z-index:1;pointer-events:none}
+  .hero .heromark .amk-l{opacity:.9} .hero .heromark .amk-p{opacity:1}
+
+  /* ---------- layout ---------- */
+  .layout{display:grid;grid-template-columns:256px 1fr;gap:36px;
+    max-width:1200px;margin:0 auto;padding:38px 40px 70px;align-items:start}
+
+  /* sidebar */
+  .side{position:sticky;top:92px;display:flex;flex-direction:column;gap:22px}
+  .searchbox{display:flex;align-items:center;gap:10px;height:48px;padding:0 15px;border-radius:11px;
+    border:1.5px solid var(--grey-lt);background:#fff}
+  .searchbox svg{width:17px;height:17px;color:var(--cyan-dk);flex:0 0 auto}
+  .searchbox input{border:0;outline:0;font:inherit;font-size:14.5px;font-weight:500;color:var(--ink);width:100%;background:transparent}
+  .side h4{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);padding-left:2px;margin-bottom:10px}
+  .cats{display:flex;flex-direction:column;gap:3px}
+  .cat{display:flex;align-items:center;justify-content:space-between;height:44px;padding:0 14px;border-radius:10px;
+    font-size:14.5px;font-weight:600;color:var(--grey);cursor:pointer;border:1.5px solid transparent;text-align:left;background:none;width:100%;font-family:inherit}
+  .cat:hover{background:#fff}
+  .cat .nm{display:flex;align-items:center;gap:11px;white-space:nowrap}
+  .cat .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .cat .c{font-size:12px;font-weight:700;color:var(--grey);background:var(--grey-lt);border-radius:999px;padding:2px 9px;min-width:26px;text-align:center}
+  .cat[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .cat[aria-selected="true"] .c{background:rgba(255,255,255,.22);color:#fff}
+  .helpcard{background:linear-gradient(155deg,var(--ice),#fff);border:1px solid var(--grey-lt);border-radius:14px;padding:18px 18px 20px}
+  .helpcard h5{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:6px;line-height:1.2}
+  .helpcard p{font-size:13px;line-height:1.45;color:var(--grey)}
+  .helpcard a{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:13px;font-weight:700;color:var(--cyan-dk)}
+  .helpcard a:hover{color:var(--navy)}
+
+  /* list header */
+  .listhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+  .listhead h2{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
+  .listhead .count{font-size:14px;font-weight:600;color:var(--grey)}
+  .list{display:flex;flex-direction:column;gap:18px}
+
+  /* ---------- job card ---------- */
+  .job{position:relative;display:block;background:#fff;
+    border:1px solid var(--grey-lt);border-radius:16px;overflow:hidden;
+    box-shadow:0 1px 0 rgba(31,78,121,.04);transition:box-shadow .18s,transform .18s,border-color .18s}
+  .job:hover{box-shadow:0 18px 40px rgba(31,78,121,.12);border-color:#cfe6f5}
+  .job[data-category="lead"]{--pc:var(--cyan);--pc-dk:var(--cyan-dk)}
+  .job[data-category="gov"]{--pc:var(--magenta);--pc-dk:var(--magenta-dk)}
+  .job[data-category="content"]{--pc:var(--navy);--pc-dk:var(--navy-dk)}
+  .job[data-category="committee"]{--pc:#0E9F92;--pc-dk:#0A7268}
+  .job[data-category="smallgroup"]{--pc:#7A5BB0;--pc-dk:#5C4488}
+  .job[data-category="clinical"]{--pc:#C68A2E;--pc-dk:#9A6A1C}
+  .job[data-category="apex"]{--pc:#E0604E;--pc-dk:#B5483A}
+  .job[data-category="mentor"]{--pc:#58595B;--pc-dk:#3f4042}
+
+  /* color-block header (no photo) */
+  .job-band{position:relative;overflow:hidden;padding:22px 26px 21px;color:#fff;
+    background:linear-gradient(150deg,var(--pc),var(--pc-dk))}
+  .job-band .ghostmark{position:absolute;right:-26px;top:50%;transform:translateY(-50%);
+    width:300px;z-index:0;pointer-events:none}
+  /* ASCEND ascent mark — reused on tiles + hero */
+  .amk-l{fill:#fff} .amk-p{fill:var(--magenta)}
+  .ghostmark .amk-l{opacity:.16} .ghostmark .amk-p{opacity:.85}
+  .band-inner{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+  .band-cat{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.92}
+  .job-band h3{font-size:23px;font-weight:800;color:#fff;letter-spacing:-.012em;line-height:1.12;margin-top:8px;max-width:24ch}
+  .fte{flex:0 0 auto;font-size:12.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.20);
+    border:1px solid rgba(255,255,255,.36);padding:6px 12px;border-radius:999px;white-space:nowrap}
+
+  .job-main{padding:20px 26px 22px;display:flex;flex-direction:column}
+  .prog-line{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--pc-dk)}
+  .summary{font-size:15px;line-height:1.5;color:var(--grey);margin-top:10px;max-width:64ch}
+  .job-meta{display:flex;flex-wrap:wrap;gap:9px 22px;margin-top:16px}
+  .mi{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--grey)}
+  .mi svg{width:15px;height:15px;color:var(--pc-dk);flex:0 0 auto}
+  .mi b{color:var(--navy);font-weight:700;white-space:nowrap}
+  .job-actions{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .details-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:9px;
+    font:inherit;font-size:14px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--grey-lt);cursor:pointer}
+  .details-btn:hover{border-color:var(--pc);color:var(--pc-dk)}
+  .details-btn .chev{transition:transform .3s}
+  .job[data-open] .details-btn .chev{transform:rotate(180deg)}
+  .apply-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:9px;
+    font-size:14px;font-weight:700;color:#fff;background:var(--pc)}
+  .apply-btn:hover{background:var(--pc-dk)}
+  .apply-btn svg{width:15px;height:15px}
+
+  /* expandable detail */
+  .job-detail > .inner{max-height:0;overflow:hidden}
+  .detail-pad{border-top:1px solid var(--grey-lt);margin:4px 26px 0;padding:22px 0 24px}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .dcol h4{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pc-dk);margin-bottom:12px;
+    display:flex;align-items:center;gap:9px}
+  .dcol h4::before{content:"";width:18px;height:2px;background:var(--pc);border-radius:2px;flex:0 0 auto}
+  .dcol ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .dcol li{position:relative;padding-left:19px;font-size:14px;line-height:1.46;color:var(--grey)}
+  .dcol li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;background:var(--pc);transform:rotate(45deg)}
+  .timecommit{margin-top:22px;background:var(--warm);border:1px solid var(--grey-lt);border-radius:12px;padding:16px 18px}
+  .timecommit h4{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pc-dk);margin-bottom:7px}
+  .timecommit p{font-size:14px;line-height:1.5;color:var(--grey)}
+  .detail-foot{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    background:color-mix(in srgb,var(--pc) 7%,#fff);border:1px solid color-mix(in srgb,var(--pc) 22%,#fff);border-radius:12px;padding:16px 20px}
+  .detail-foot .rep{font-size:13.5px;color:var(--grey);max-width:54ch}
+  .detail-foot .rep b{color:var(--navy);font-weight:700;display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+  .detail-foot .applywrap{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+  .detail-foot .applywrap .note{font-size:12px;color:var(--grey)}
+
+  .noresults{padding:60px 20px;text-align:center;color:var(--grey);display:none}
+  .noresults svg{width:40px;height:40px;color:var(--grey-lt);margin-bottom:12px}
+  .noresults h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px}
+
+  /* ---------- apply band ---------- */
+  .applyband{background:linear-gradient(110deg,var(--navy) 0%,var(--navy-dk) 100%);color:#fff;position:relative;overflow:hidden}
+  .applyband .shell{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:44px 40px;position:relative;z-index:2}
+  .applyband .stripe{position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--cyan),var(--magenta) 60%,var(--grey));z-index:3}
+  .applyband h3{font-size:28px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+  .applyband p{font-size:15.5px;color:#D7E6F2;max-width:60ch;line-height:1.5}
+  .applyband .applyactions{display:flex;flex-direction:column;align-items:stretch;gap:12px;flex:0 0 auto}
+  .applyband .bigmail{display:inline-flex;align-items:center;justify-content:center;gap:11px;height:56px;padding:0 28px;border-radius:11px;
+    background:var(--cyan);color:#fff;font-size:16px;font-weight:800;white-space:nowrap}
+  .applyband .bigmail:hover{background:var(--cyan-dk)}
+  .applyband .bigmail svg{width:20px;height:20px}
+  .applyband .bigmail.alt{background:transparent;border:2px solid rgba(255,255,255,.5);font-size:15px;height:52px}
+  .applyband .bigmail.alt:hover{background:rgba(255,255,255,.12);border-color:#fff}
+  .applyband .bigmail.alt svg{width:17px;height:17px}
+  .applyband .ghosttext{position:absolute;right:-20px;top:-30px;font-size:200px;font-weight:900;opacity:.06;letter-spacing:-.04em;z-index:1;pointer-events:none}
+
+  /* ---------- footer ---------- */
+  footer{background:#fff;border-top:1px solid var(--grey-lt)}
+  footer .shell{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 40px;flex-wrap:wrap}
+  footer .logos{display:flex;align-items:center;gap:24px}
+  footer .logos img.ms{height:34px}
+  footer .logos img.ascend{height:48px}
+  footer .logos .divider{width:1px;height:34px;background:var(--grey-lt)}
+  footer .fmeta{font-size:12.5px;color:var(--grey);line-height:1.5;text-align:right}
+  footer .fmeta b{color:var(--navy)}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr}
+    .side{position:static}
+    .hero h1{font-size:40px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <img class="ms" src="assets/icahn-mount-sinai-logo.png" alt="Icahn School of Medicine at Mount Sinai" />
+      <div class="divider"></div>
+      <div class="office">Office of Curricular Affairs<span>Department of Medical Education</span></div>
+    </div>
+    <nav class="topnav">
+      <a href="#roles">Open Roles</a>
+      <a href="#apply">How to Apply</a>
+      <a class="cta" href="mailto:curricular.affairs@mssm.edu">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="scrim"></div>
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="pin"></span>ASCEND Curriculum · Faculty Opportunities</span>
+      <h1>Teach. Lead. Develop.</h1>
+      <p class="herosub">the next generation of physicians at Icahn Mount Sinai.</p>
+      <p class="lede">A directory of open faculty roles across medical education.</p>
+      <div class="stats">
+        <div class="stat"><div class="n" id="stat-roles">10</div><div class="l">Open Roles</div></div>
+        <div class="stat"><div class="n" id="stat-cats">5</div><div class="l">Categories</div></div>
+        <div class="stat"><div class="n">0.1–0.4</div><div class="l">FTE (funded roles)</div></div>
+      </div>
+    </div>
+    <svg class="heromark" viewBox="0 0 2149.48 711.8" fill="none" aria-hidden="true">
+      <g class="amk-l">
+        <polygon points="98.44 711.8 780.24 192.2 701.99 112.2"/>
+        <polygon points="352.93 711.8 907.91 322.73 827.42 240.41"/>
+        <polygon points="612.48 711.8 1408.32 78.9 1328.93 0"/>
+        <polygon points="862.16 711.8 1534.77 204.49 1453.79 124.04"/>
+        <polygon points="1121.1 711.8 1661.95 330.86 1583.26 252.65"/>
+        <polygon points="1372.32 711.8 1791.42 459.51 1708.85 377.47"/>
+        <polygon points="1629.71 711.8 1918.65 585.84 1837.54 505.31"/>
+      </g>
+      <polygon class="amk-p" points="1967.05 633.96 1888.65 711.8 2045.42 711.8"/>
+    </svg>
+  </section>
+
+  <!-- LAYOUT -->
+  <div class="layout" id="roles">
+    <aside class="side">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="search" type="text" placeholder="Search roles…" autocomplete="off" />
+      </div>
+      <div>
+        <h4>Browse by category</h4>
+        <div class="cats" id="cats"></div>
+      </div>
+      <div class="helpcard">
+        <h5>Not sure where you fit?</h5>
+        <p>Many roles include onboarding, faculty development, and protected time. We're happy to help you find the right opportunity.</p>
+        <a href="mailto:curricular.affairs@mssm.edu">Talk to our team
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <div class="listhead">
+        <h2 id="list-title">All open roles</h2>
+        <span class="count" id="list-count"></span>
+      </div>
+      <div class="list" id="job-list"></div>
+      <div class="noresults" id="noresults">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <h3>No roles match your search</h3>
+        <p>Try a different keyword or clear the filters.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- APPLY BAND -->
+  <section class="applyband" id="apply">
+    <div class="ghosttext">APPLY</div>
+    <div class="shell">
+      <div>
+        <h3>How to apply</h3>
+        <p>Interested faculty should email a CV and a brief personal statement to the Office of Curricular Affairs. Note the role title in your subject line — questions are welcome too.</p>
+      </div>
+      <div class="applyactions">
+        <a class="bigmail" href="mailto:curricular.affairs@mssm.edu?subject=Faculty%20Role%20Inquiry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          curricular.affairs@mssm.edu
+        </a>
+        <a class="bigmail alt" href="mailto:curricular.affairs@mssm.edu?subject=Faculty%20Roles%20%E2%80%94%20Question%20%2F%20Expression%20of%20Interest">
+          Still have questions? Express interest
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="stripe"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="shell">
+      <div class="logos">
+        <img class="ascend" src="assets/ascend-curriculum-logo.png" alt="ASCEND Curriculum" />
+        <div class="divider"></div>
+        <img class="ms" src="assets/icahn-mount-sinai-logo.png" alt="Icahn School of Medicine at Mount Sinai" />
+      </div>
+      <div class="fmeta">
+        <b>Office of Curricular Affairs</b> · Department of Medical Education<br/>
+        The Leni and Peter W. May Department of Medical Education
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var ICONS = {
+    fte:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    term:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>',
+    reports:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="3" width="8" height="5" rx="1"/><path d="M12 8v5M6 21v-3a2 2 0 012-2h8a2 2 0 012 2v3M6 21h0M12 13v8"/></svg>',
+    mark:'<svg viewBox="0 0 2149.48 711.8" fill="none"><g class="amk-l"><polygon points="98.44 711.8 780.24 192.2 701.99 112.2"/><polygon points="352.93 711.8 907.91 322.73 827.42 240.41"/><polygon points="612.48 711.8 1408.32 78.9 1328.93 0"/><polygon points="862.16 711.8 1534.77 204.49 1453.79 124.04"/><polygon points="1121.1 711.8 1661.95 330.86 1583.26 252.65"/><polygon points="1372.32 711.8 1791.42 459.51 1708.85 377.47"/><polygon points="1629.71 711.8 1918.65 585.84 1837.54 505.31"/></g><polygon class="amk-p" points="1967.05 633.96 1888.65 711.8 2045.42 711.8"/></svg>',
+    arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    chev:'<svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>',
+    mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    meet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>'
+  };
+  var CATEGORIES = window.CATEGORIES, JOBS = window.JOBS;
+  var PCOLOR = { cyan:'#00AEEF', magenta:'#D80B8C', navy:'#1F4E79', teal:'#0E9F92', violet:'#7A5BB0', amber:'#C68A2E', coral:'#E0604E', grey:'#58595B' };
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function mailto(job){
+    var subj = 'Application: ' + job.title + ' — ' + job.body;
+    var body = 'Dear Office of Curricular Affairs,\n\nI am writing to express my interest in the ' + job.title +
+      ' role. Please find my CV and personal statement attached.\n\nThank you,\n';
+    return 'mailto:curricular.affairs@mssm.edu?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+  }
+
+  function cardHTML(job, idx){
+    var cat = CATEGORIES[job.category];
+    var resp = job.responsibilities.map(function(r){return '<li>'+esc(r)+'</li>';}).join('');
+    var qual = job.qualifications.map(function(q){return '<li>'+esc(q)+'</li>';}).join('');
+    var timeBlock = job.timeCommitment ? (
+      '<div class="timecommit"><h4>Time commitment</h4><p>'+esc(job.timeCommitment)+'</p></div>') : '';
+    var metaHTML = (job.meta||[]).map(function(m){
+      return '<span class="mi">'+(ICONS[m.k]||ICONS.term)+' '+m.v+'</span>'; }).join('');
+    var text = (job.title+' '+job.type+' '+job.summary+' '+job.body+' '+cat.name+' '+job.responsibilities.join(' ')+' '+job.qualifications.join(' ')).toLowerCase();
+    return ''+
+    '<article class="job" data-category="'+job.category+'" data-text="'+esc(text)+'" id="'+job.id+'">'+
+      '<div class="job-band">'+
+        '<div class="ghostmark">'+ICONS.mark+'</div>'+
+        '<div class="band-inner">'+
+          '<div><div class="band-cat">'+esc(job.body)+'</div><h3>'+esc(job.title)+'</h3></div>'+
+          '<span class="fte">'+esc(job.badge)+'</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="job-main">'+
+        '<div class="prog-line">'+esc(job.type)+'</div>'+
+        '<p class="summary">'+esc(job.summary)+'</p>'+
+        '<div class="job-meta">'+metaHTML+'</div>'+
+        '<div class="job-actions">'+
+          '<button class="details-btn" type="button" aria-expanded="false">View details '+ICONS.chev+'</button>'+
+          '<a class="apply-btn" href="'+mailto(job)+'">Express interest here '+ICONS.arrow+'</a>'+
+        '</div>'+
+      '</div>'+
+      '<div class="job-detail"><div class="inner"><div class="detail-pad">'+
+        '<div class="detail-grid">'+
+          '<div class="dcol"><h4>Key responsibilities</h4><ul>'+resp+'</ul></div>'+
+          '<div class="dcol"><h4>Qualifications</h4><ul>'+qual+'</ul></div>'+
+        '</div>'+
+        timeBlock+
+        '<div class="detail-foot">'+
+          '<div class="rep"><b>Reports to</b>'+esc(job.reports)+'</div>'+
+          '<div class="applywrap">'+
+            '<a class="apply-btn" href="'+mailto(job)+'">Express interest here '+ICONS.arrow+'</a>'+
+            '<span class="note">CV + personal statement to curricular.affairs@mssm.edu</span>'+
+          '</div>'+
+        '</div>'+
+      '</div></div></div>'+
+    '</article>';
+  }
+
+  // render all cards once
+  var list = document.getElementById('job-list');
+  list.innerHTML = JOBS.map(cardHTML).join('');
+  document.getElementById('stat-roles').textContent = JOBS.length;
+  document.getElementById('stat-cats').textContent = Object.keys(CATEGORIES).length;
+
+  // expand/collapse — instant max-height swap. (Animated max-height is unreliable
+  // here: both CSS transitions and WAAPI freeze at their from-value when the
+  // preview throttles animation frames, clobbering the inline value.)
+  list.addEventListener('click', function(e){
+    var btn = e.target.closest('.details-btn');
+    if(!btn) return;
+    var job = btn.closest('.job');
+    var inner = job.querySelector('.job-detail > .inner');
+    if(inner.getAnimations) inner.getAnimations().forEach(function(a){ a.cancel(); });
+    if(job.hasAttribute('data-open')){
+      job.removeAttribute('data-open'); btn.setAttribute('aria-expanded','false'); btn.firstChild.textContent='View details ';
+      inner.style.maxHeight = '0px';
+    } else {
+      job.setAttribute('data-open',''); btn.setAttribute('aria-expanded','true'); btn.firstChild.textContent='Hide details ';
+      inner.style.maxHeight = 'none';
+    }
+  });
+
+  // build category chips
+  var counts = { all: JOBS.length };
+  JOBS.forEach(function(j){ counts[j.category]=(counts[j.category]||0)+1; });
+  var cats = document.getElementById('cats');
+  var order = [['all','All roles',null]].concat(Object.keys(CATEGORIES).map(function(k){return [k, CATEGORIES[k].name, CATEGORIES[k].color];}));
+  cats.innerHTML = order.map(function(o,i){
+    var dot = o[2] ? '<span class="dot" style="background:'+PCOLOR[o[2]]+'"></span>' : '';
+    return '<button class="cat" role="tab" data-cat="'+o[0]+'" aria-selected="'+(i===0?'true':'false')+'">'+
+      '<span class="nm">'+dot+esc(o[1])+'</span><span class="c">'+(counts[o[0]]||0)+'</span></button>';
+  }).join('');
+
+  var state = { cat:'all', q:'' };
+  function apply(){
+    var jobs = list.querySelectorAll('.job');
+    var shown = 0;
+    jobs.forEach(function(j){
+      var okCat = state.cat==='all' || j.getAttribute('data-category')===state.cat;
+      var okQ = !state.q || j.getAttribute('data-text').indexOf(state.q)>-1;
+      var vis = okCat && okQ;
+      j.style.display = vis ? '' : 'none';
+      if(vis) shown++;
+    });
+    document.getElementById('noresults').style.display = shown? 'none':'block';
+    document.getElementById('list-count').textContent = shown + (shown===1?' role':' roles');
+    var title = state.cat==='all' ? 'All open roles' : CATEGORIES[state.cat].name;
+    document.getElementById('list-title').textContent = title;
+  }
+
+  cats.addEventListener('click', function(e){
+    var btn = e.target.closest('.cat'); if(!btn) return;
+    cats.querySelectorAll('.cat').forEach(function(c){ c.setAttribute('aria-selected','false'); });
+    btn.setAttribute('aria-selected','true');
+    state.cat = btn.getAttribute('data-cat');
+    apply();
+  });
+  document.getElementById('search').addEventListener('input', function(e){
+    state.q = e.target.value.trim().toLowerCase(); apply();
+  });
+
+  apply();
+})();
+</script>
+</body>
+</html>
