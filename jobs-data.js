@@ -69,27 +69,6 @@ window.JOBS = [
     ],
   },
   {
-    id:"ccc-clinical-site-director", category:"lead", body:"Chronic Care Clerkship",
-    title:"Clinical Site Director (Associate Director)", type:"Site & Operations", badge:"0.2 FTE",
-    reports:"Co-Clerkship Directors, Chronic Care Clerkship",
-    summary:"Support the implementation, evaluation, and daily operations of the Chronic Care Clerkship, ensuring a well-organized, integrated, and student-centered experience across classroom and clinical components.",
-    meta:[{k:"fte",v:"<b>0.2 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
-    responsibilities:[
-      "Draft, revise, and maintain clerkship materials — syllabi, guides, assignments, and student resources",
-      "Contribute to the development of assessment tools and grading rubrics",
-      "Assist with placement logistics, preceptor communication, and clinical site operations",
-      "Manage student tracking and site coordination processes",
-      "Prepare and lead didactic or case-based teaching sessions using active learning",
-      "Support orientation, check-ins, CQI initiatives, and accreditation data collection",
-    ],
-    qualifications:[
-      "Advanced degree (MD, DO, NP, PA, PhD, DNP, EdD, PharmD, MSW/DSW, or relevant professional degree)",
-      "Demonstrated interest in teaching, curriculum development, or clinical education",
-      "Strong organizational, communication, and collaboration skills",
-      "Professionalism, integrity, and dependability",
-    ],
-  },
-  {
     id:"ccc-ambulatory-care", category:"lead", body:"Chronic Care Clerkship",
     title:"Site/Associate Clerkship Director", type:"Domain Director", badge:"0.1 FTE",
     reports:"Co-Clerkship Directors, Chronic Care Clerkship",
