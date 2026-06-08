@@ -285,27 +285,6 @@ window.JOBS = [
 
   /* ───────── CONTENT AREA DIRECTORS — Pre-Clerkship Phase ───────── */
   {
-    id:"cad-nutrition", category:"content", body:"Pre-Clerkship · Nutrition",
-    title:"Content Area Director — Nutrition", type:"Content Area Director", badge:"0.1 FTE",
-    reports:"Director of the Pre-Clerkship Phase",
-    summary:"Provide strategic oversight for the integration, standardization, and advancement of nutrition education across the MD curriculum, with emphasis on the pre-clerkship phase and longitudinal reinforcement into clinical training.",
-    meta:[{k:"fte",v:"<b>0.1 FTE</b>&nbsp;protected"},{k:"term",v:"Pre-Clerkship · longitudinal thread"}],
-    responsibilities:[
-      "Lead and oversee integration of nutrition content across the pre-clerkship curriculum",
-      "Ensure alignment with MEPOs, LCME standards, and national nutrition priorities (e.g., HHS competencies)",
-      "Define and maintain core nutrition competencies across clinical care, public health, and counseling",
-      "Develop and curate evidence-based, clinically integrated instructional materials",
-      "Integrate nutrition across foundational sciences, organ systems, and Areas of Concentration",
-      "Provide faculty development and participate in curriculum governance and CQI",
-    ],
-    qualifications:[
-      "Doctoral degree (MD, DO, PhD, DrPH, or equivalent) or RD/RDN with an advanced degree in nutrition, public health, or a related field",
-      "Expertise in clinical, public health, or applied nutrition",
-      "Demonstrated teaching experience and curriculum development / assessment experience",
-      "Ability to integrate nutrition across basic and clinical sciences",
-    ],
-  },
-  {
     id:"cad-physiology", category:"content", body:"Pre-Clerkship · Physiology",
     title:"Content Area Director — Physiology", type:"Content Area Director", badge:"0.1 FTE",
     reports:"Director of the Pre-Clerkship Phase",
