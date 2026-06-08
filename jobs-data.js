@@ -32,7 +32,10 @@ window.JOBS = [
       "Provide strategic and operational leadership of the clerkship across clinical, classroom, and community-based settings",
       "Lead design of clinical learning experiences aligned with real-world patient care",
       "Lead clinical evaluation tools, grading frameworks, and competency decisions",
-      "Lead clinical site recruitment, onboarding, and evaluation; serve as primary liaison with physician preceptors",
+      "Oversee clinical site recruitment, onboarding, development, and evaluation; serve as primary liaison with physician preceptors",
+      "Co-lead student competency in behavior change, counseling, and risk-reduction strategies",
+      "Co-lead curricular integration of health promotion, health maintenance, nutrition, and disease prevention",
+      "Lead active-learning teaching sessions",
       "Ensure appropriate patient mix, supervision, and clinical exposure across sites",
       "Participate in CCS governance and ongoing LCME compliance",
     ],
@@ -51,11 +54,12 @@ window.JOBS = [
     meta:[{k:"fte",v:"<b>0.4 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
     responsibilities:[
       "Share strategic leadership, operational management, and CQI for the clerkship",
-      "Lead curricular integration of health promotion, health maintenance, nutrition, and disease prevention",
-      "Ensure student competency in behavior change, counseling, and risk-reduction strategies",
+      "Co-lead curricular integration of health promotion, health maintenance, nutrition, and disease prevention",
+      "Co-lead student competency in behavior change, counseling, and risk-reduction strategies",
       "Lead development of interprofessional and team-based learning experiences",
       "Develop community-based learning (e.g., senior centers, prevention programs)",
       "Integrate social and structural determinants of health into student learning",
+      "Lead active-learning teaching sessions",
     ],
     qualifications:[
       "Advanced degree (NP, PA, PhD, DNP, EdD, MSW, PharmD, MD/DO, or equivalent)",
@@ -87,17 +91,13 @@ window.JOBS = [
   },
   {
     id:"ccc-ambulatory-care", category:"lead", body:"Chronic Care Clerkship",
-    title:"Ambulatory Care Site Director", type:"Domain Director", badge:"0.1 FTE",
+    title:"Site/Associate Clerkship Director", type:"Domain Director", badge:"0.1 FTE",
     reports:"Co-Clerkship Directors, Chronic Care Clerkship",
     summary:"Provide leadership and oversight of outpatient clinical experiences, ensuring alignment with clerkship goals in preventive care, screening, and longitudinal disease management.",
     meta:[{k:"fte",v:"<b>0.1 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
     responsibilities:[
-      "Refine ambulatory care learning objectives, session content, and student-facing materials",
-      "Oversee quality and consistency of ambulatory clinical sites — patient mix, supervision, learning opportunities",
-      "Coordinate student placement, scheduling, and preceptor communication",
-      "Build and maintain strong relationships with clinical preceptors and site leadership",
-      "Design and deliver teaching on preventive care, screening, and longitudinal care models",
-      "Support faculty development focused on ambulatory teaching and assessment",
+      "Support the implementation, evaluation, and daily operations of the Chronic Care Clerkship, ensuring a well-organized, integrated, and student-centered experience across classroom and clinical components",
+      "Lead clinical site recruitment, onboarding, development, and evaluation; serve as primary liaison with physician preceptors",
     ],
     qualifications:[
       "MD, DO, NP, or PA required",
@@ -106,51 +106,9 @@ window.JOBS = [
       "Experience with curriculum development or assessment desirable",
     ],
   },
-  {
-    id:"ccc-aging-community", category:"lead", body:"Chronic Care Clerkship",
-    title:"Aging & Community Care Director", type:"Domain Director", badge:"0.1 FTE",
-    reports:"Co-Clerkship Directors, Chronic Care Clerkship",
-    summary:"Lead educational experiences related to the care of older adults across outpatient geriatrics and community-based settings, integrating health promotion and chronic disease management across the aging continuum.",
-    meta:[{k:"fte",v:"<b>0.1 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
-    responsibilities:[
-      "Develop curriculum on geriatrics, multimorbidity, and aging in community settings",
-      "Define competencies in functional assessment, cognition, mobility, and medication management",
-      "Coordinate geriatrics outpatient and community-based (e.g., senior center) experiences",
-      "Establish and maintain clinical and community partnerships",
-      "Deliver teaching on aging in place, function, and adaptation to chronic disease",
-      "Contribute to faculty development in geriatrics education",
-    ],
-    qualifications:[
-      "MD, DO, NP, PA, or advanced degree in geriatrics, social work, or related field",
-      "Experience in geriatrics or community-based care preferred",
-      "Demonstrated interest in education and curriculum development",
-      "Strong interpersonal and organizational skills",
-    ],
-  },
-  {
-    id:"ccc-ipe-patient-engagement", category:"lead", body:"Chronic Care Clerkship",
-    title:"Interprofessional Education & Patient Engagement Director", type:"Domain Director", badge:"0.1 FTE",
-    reports:"Co-Clerkship Directors, Chronic Care Clerkship",
-    summary:"Provide leadership and oversight of curriculum focused on team-based care, communication, and patient-centered engagement across all learning environments.",
-    meta:[{k:"fte",v:"<b>0.1 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
-    responsibilities:[
-      "Develop and maintain curriculum on interprofessional collaboration and patient communication",
-      "Build competencies in communicating health promotion and prevention to patients and families",
-      "Coordinate interprofessional learning with nursing, social work, pharmacy, and allied health",
-      "Lead sessions on team-based care, communication, and patient engagement",
-      "Facilitate simulation, case-based, or experiential learning activities",
-      "Support faculty in delivering interprofessional education",
-    ],
-    qualifications:[
-      "Advanced degree (MD, DO, NP, PA, PhD, MSW, DNP, or related field)",
-      "Experience in interprofessional education or team-based care",
-      "Strong facilitation and communication skills",
-      "Demonstrated commitment to medical education",
-    ],
-  },
-  {
-    id:"ccc-lifestyle-prevention", category:"lead", body:"Chronic Care Clerkship",
-    title:"Lifestyle Medicine & Prevention Director", type:"Domain Director", badge:"0.1 FTE",
+     {
+    id:"ccc-ambulatory-care", category:"lead", body:"Chronic Care Clerkship",
+    title:"Nutrition Content Area/Lifestyle Director", type:"Domain Director", badge:"0.2 FTE - 0.1 dedicated to CCC",
     reports:"Co-Clerkship Directors, Chronic Care Clerkship",
     summary:"Lead the design, implementation, and oversight of curriculum focused on health promotion, nutrition, disease prevention, and lifestyle medicine across the life cycle.",
     meta:[{k:"fte",v:"<b>0.1 FTE</b>&nbsp;protected"},{k:"term",v:"Multi-year · renewed annually"}],
@@ -164,9 +122,9 @@ window.JOBS = [
     ],
     qualifications:[
       "Advanced degree (MD, DO, NP, PA, PhD, RD, MPH, or related field)",
-      "Expertise in nutrition, lifestyle medicine, preventive medicine, or public health",
-      "Curriculum experience related to nutrition or prevention preferred",
-      "Strong communication, facilitation, and collaboration skills",
+      "Expertise in nutrition, lifestyle medicine, preventive medicine, or public health,"
+      "Curriculum experience related to nutrition or prevention preferred,"
+      "Strong communication, facilitation, and collaboration skills,"
     ],
   },
 
